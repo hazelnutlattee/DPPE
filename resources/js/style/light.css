@@ -1,0 +1,52 @@
+
+/* =================================
+   CYBER LIGHT MODE
+================================= */
+
+[data-theme="light"] {
+    /* Background */
+    --bg-primary: #F8FAFC;
+    --bg-secondary: #F1F5F9;
+    --bg-card: #FFFFFF;
+    --bg-navbar: #FFFFFF;
+    --bg-input: #FFFFFF;
+
+    /* Text */
+    --text-primary: #0F172A;
+    --text-secondary: #475569;
+    --text-muted: #94A3B8;
+    --text-inverse: #FFFFFF;
+
+    /* Borders */
+    --border-color: #E2E8F0;
+    --border-hover: #CBD5E1;
+
+    /* Brand */
+    --primary: #3B82F6;
+    --primary-hover: #2563EB;
+    --secondary: #8B5CF6;
+    --accent: #0891B2;
+
+    /* Effects */
+    --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
+    --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.08);
+    --shadow-lg: 0 10px 30px rgba(15, 23, 42, 0.10);
+
+    --glow-primary: 0 0 15px rgba(59, 130, 246, 0.12);
+}
+
+/* Bootstrap Integration */
+[data-theme="light"] {
+    color-scheme: light;
+
+    --bs-body-bg: var(--bg-primary);
+    --bs-body-color: var(--text-primary);
+    --bs-border-color: var(--border-color);
+    --bs-primary: var(--primary);
+}
+
+/* Global Styling */
+[data-theme="light"] body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}

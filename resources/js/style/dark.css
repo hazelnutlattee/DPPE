@@ -1,0 +1,52 @@
+
+/* =================================
+   CYBER DARK MODE
+================================= */
+
+[data-theme="dark"] {
+    /* Background */
+    --bg-primary: #0F172A;
+    --bg-secondary: #172554;
+    --bg-card: #1E293B;
+    --bg-navbar: #111C32;
+    --bg-input: #1E293B;
+
+    /* Text */
+    --text-primary: #F8FAFC;
+    --text-secondary: #CBD5E1;
+    --text-muted: #94A3B8;
+    --text-inverse: #0F172A;
+
+    /* Borders */
+    --border-color: #334155;
+    --border-hover: #475569;
+
+    /* Brand */
+    --primary: #60A5FA;
+    --primary-hover: #3B82F6;
+    --secondary: #A78BFA;
+    --accent: #22D3EE;
+
+    /* Effects */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.20);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.30);
+
+    --glow-primary: 0 0 18px rgba(59, 130, 246, 0.22);
+}
+
+/* Bootstrap Integration */
+[data-theme="dark"] {
+    color-scheme: dark;
+
+    --bs-body-bg: var(--bg-primary);
+    --bs-body-color: var(--text-primary);
+    --bs-border-color: var(--border-color);
+    --bs-primary: var(--primary);
+}
+
+/* Global Styling */
+[data-theme="dark"] body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
