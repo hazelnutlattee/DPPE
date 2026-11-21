@@ -512,15 +512,15 @@ export default function About() {
                         <div className="dppe-footer-links">
                             <strong>LEARN</strong>
 
-                            <Link href="/about">
+                            <Link href="#about">
                                 About the project
                             </Link>
 
-                            <Link href="/about#permission-guide">
+                            <Link href="#about#permission-guide">
                                 Permission guide
                             </Link>
 
-                            <Link href="/about#faq">
+                            <Link href="#about#faq">
                                 Frequently asked questions
                             </Link>
                         </div>

@@ -230,7 +230,7 @@ export default function Welcome() {
             </a>
 
             <Link
-                href="/about"
+                href="#about"
                 className={activeSection === 'about' ? 'active' : ''}
                 onClick={() => setActiveSection('about')}
             >
