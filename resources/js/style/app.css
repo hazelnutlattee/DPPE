@@ -862,6 +862,47 @@
     font-weight: 800;
 }
 
+/* TECHNOLOGY CREDITS */
+.dppe-credits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 35px;
+}
+
+.dppe-credit-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dppe-credit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.dppe-credit-card h3 {
+    color: var(--text-primary);
+}
+
+.dppe-credit-card p {
+    color: var(--text-secondary);
+}
+
+.dppe-credit-icon {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 640px) {
+    .dppe-credits-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* =========================================
    FEATURES
 ========================================= */
@@ -2084,4 +2125,159 @@
 }
 @media (max-width: 600px) {
     .dppe-risk-grid-4col { grid-template-columns: 1fr; }
+}
+
+/* SIMULATION NOTICE POP-UP */
+.simulation-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(4px);
+}
+
+.simulation-modal {
+    width: 100%;
+    max-width: 520px;
+    padding: 32px;
+    background: #FFFFFF;
+    border-radius: 18px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    color: #5C4550;
+    text-align: center;
+    animation: noticeFadeIn 0.3s ease;
+}
+
+.simulation-modal-icon {
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+.simulation-modal h2 {
+    color: #800F35;
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.simulation-modal-intro {
+    font-size: 14px;
+    color: #806B75;
+    margin-bottom: 22px;
+}
+
+.simulation-modal-content {
+    text-align: left;
+    background: #FFF8FA;
+    border: 1px solid #F2DCE4;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 22px;
+}
+
+.simulation-modal-content p {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.simulation-modal-content p:last-child {
+    margin-bottom: 0;
+}
+
+.simulation-modal-button {
+    width: 100%;
+    padding: 13px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #800F35;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.simulation-modal-button:hover {
+    background: #A31648;
+}
+
+@keyframes noticeFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 480px) {
+    .simulation-modal {
+        padding: 24px 20px;
+    }
+
+    .simulation-modal h2 {
+        font-size: 22px;
+    }
+}
+
+/* TEAM MEMBERS */
+.dppe-team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 35px;
+}
+
+.dppe-team-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 30px 24px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dppe-team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.dppe-team-card h3 {
+    color: var(--text-primary);
+}
+
+.dppe-team-id {
+    color: var(--text-muted);
+}
+
+.dppe-team-card span {
+    background: var(--bg-secondary);
+    color: var(--primary);
+}
+
+.dppe-team-icon {
+    width: 65px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+    background: var(--bg-secondary);
+    border-radius: 50%;
+    font-size: 30px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 640px) {
+    .dppe-team-grid {
+        grid-template-columns: 1fr;
+    }
 }

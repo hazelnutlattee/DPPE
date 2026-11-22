@@ -240,6 +240,92 @@ export default function About() {
                             </div>
                         </section>
 
+                        {/* TEAM MEMBERS */}
+                        <section className="dppe-about-section" id="team-members">
+
+                            <div className="dppe-eyebrow-badge">
+                                OUR TEAM
+                            </div>
+
+                            <h2>Meet the Team</h2>
+
+                            <p className="dppe-section-desc">
+                                Meet the team behind Digital Privacy Permission Explorer.
+                                Each member contributes to developing and improving this platform.
+                            </p>
+
+                            <div className="dppe-team-grid">
+
+                                <div className="dppe-team-card">
+                                    <div className="dppe-team-icon">👑</div>
+                                    <h3>Ahmad Syaqir Bin Suhaidie</h3>
+                                    <p className="dppe-team-id">2026123829</p>
+                                    <span>Project Leader</span>
+                                </div>
+
+                                <div className="dppe-team-card">
+                                    <div className="dppe-team-icon">💻</div>
+                                    <h3>Khidir Bin Suhaizad</h3>
+                                    <p className="dppe-team-id">2026124549</p>
+                                    <span>Backend Developer</span>
+                                </div>
+
+                                <div className="dppe-team-card">
+                                    <div className="dppe-team-icon">🎨</div>
+                                    <h3>Nurin Karmila Binti Kamaruddin</h3>
+                                    <p className="dppe-team-id">2026132507</p>
+                                    <span>Frontend Developer & UI/UX Designer</span>
+                                </div>
+
+                                <div className="dppe-team-card">
+                                    <div className="dppe-team-icon">⚙️</div>
+                                    <h3>Nur Ain Zulaikha Binti Sazali</h3>
+                                    <p className="dppe-team-id">2026122285</p>
+                                    <span>Frontend Developer (Interactive Features)</span>
+                                </div>
+
+                            </div>
+
+                        </section>
+
+                        {/* CREDITS */}
+                        <section className="dppe-about-section" id="credits">
+
+                            <div className="dppe-eyebrow-badge">
+                                TECHNOLOGY CREDITS
+                            </div>
+
+                            <h2>Built With</h2>
+
+                            <p className="dppe-section-desc">
+                                DPPE is developed using modern web technologies
+                                to create an interactive and user-friendly experience.
+                            </p>
+
+                            <div className="dppe-credits-grid">
+
+                                <div className="dppe-credit-card">
+                                    <div className="dppe-credit-icon">🔧</div>
+                                    <h3>Laravel</h3>
+                                    <p>Backend Framework</p>
+                                </div>
+
+                                <div className="dppe-credit-card">
+                                    <div className="dppe-credit-icon">⚛️</div>
+                                    <h3>React</h3>
+                                    <p>Frontend Library</p>
+                                </div>
+
+                                <div className="dppe-credit-card">
+                                    <div className="dppe-credit-icon">🎨</div>
+                                    <h3>Tailwind CSS</h3>
+                                    <p>CSS Framework</p>
+                                </div>
+
+                            </div>
+
+                        </section>
+
                         {/* PERMISSION BASICS */}
                         <section className="dppe-about-section">
 
@@ -481,7 +567,7 @@ export default function About() {
                     </div>
                 </main>
 
-                                {/* FOOTER */}
+                {/* FOOTER */}
                 <footer className="dppe-footer">
                     <div className="dppe-footer-inner">
                         {/* Column 1: Brand & Description */}
@@ -512,15 +598,15 @@ export default function About() {
                         <div className="dppe-footer-links">
                             <strong>LEARN</strong>
 
-                            <Link href="#about">
+                            <Link href="/about">
                                 About the project
                             </Link>
 
-                            <Link href="#about#permission-guide">
+                            <Link href="/about#permission-guide">
                                 Permission guide
                             </Link>
 
-                            <Link href="#about#faq">
+                            <Link href="/about#faq">
                                 Frequently asked questions
                             </Link>
                         </div>
