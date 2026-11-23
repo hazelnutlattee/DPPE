@@ -1,7 +1,7 @@
 import { Head, Link, usePage } from '@inertiajs/react';
 import { dashboard, login, register } from '@/routes';
 import ThemeToggle from '@/components/ui/theme-toggle';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const permissions = [
     { name: 'Camera', detail: 'Access to device camera', risk: 'High' },
@@ -188,11 +188,104 @@ const steps = [
 export default function Welcome() {
     const { auth } = usePage().props as any;
     const [activeSection, setActiveSection] = useState('home');
+    const [showNotice, setShowNotice] = useState(false);
+
+    useEffect(() => {
+        const noticeAccepted = localStorage.getItem('dppe_notice_accepted');
+
+        if (!noticeAccepted) {
+            setShowNotice(true);
+        }
+    }, []);
+
+    const handleAcceptNotice = () => {
+        localStorage.setItem('dppe_notice_accepted', 'true');
+        setShowNotice(false);
+    };
+
+    // ACTIVE NAVIGATION WHEN SCROLLING
+    useEffect(() => {
+        const sections = ['home', 'featured-scenarios', 'how-it-works'];
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        if (entry.target.id === 'home') {
+                            setActiveSection('home');
+                        } else if (entry.target.id === 'featured-scenarios') {
+                            setActiveSection('features');
+                        } else if (entry.target.id === 'how-it-works') {
+                            setActiveSection('how-it-works');
+                        }
+                    }
+                });
+            },
+            { threshold: 0.3 }
+        );
+
+        sections.forEach((id) => {
+            const section = document.getElementById(id);
+
+            if (section) {
+                observer.observe(section);
+            }
+        });
+
+        return () => observer.disconnect();
+    }, []);
+
     return (
         <>
+            {/* SIMULATION NOTICE POP-UP */}
+            {showNotice && (
+                <div className="simulation-modal-overlay">
+                    <div className="simulation-modal">
+                        <div className="simulation-modal-icon">
+                            ⚠️
+                        </div>
+
+                        <h2>Simulation Notice</h2>
+
+                        <p className="simulation-modal-intro">
+                            Before you start exploring DPPE, please read
+                            the following notice.
+                        </p>
+
+                        <div className="simulation-modal-content">
+                            <p>
+                                DPPE is an educational simulation platform
+                                that uses fictional applications and
+                                simulated permission requests.
+                            </p>
+
+                            <p>
+                                It does not access your actual camera,
+                                microphone, location, or notifications,
+                                or collect your device data.
+                            </p>
+
+                            <p>
+                                All Allow and Deny choices are for
+                                demonstration purposes only. They do not
+                                grant or revoke real device permissions.
+                            </p>
+                        </div>
+
+                        <button
+                            className="simulation-modal-button"
+                            onClick={handleAcceptNotice}
+                        >
+                            I Understand — Continue
+                        </button>
+                    </div>
+                </div>
+            )}
+
             <Head title="DPPE - Digital Privacy Permission Explorer" />
 
             <div className="dppe-page">
+
 {/* NAVIGATION */}
 <header className="dppe-navbar sticky top-0 z-50">
     <div className="dppe-nav-inner">
@@ -214,7 +307,7 @@ export default function Welcome() {
             </a>
 
             <a
-                href="#features"
+                href="#featured-scenarios"
                 className={activeSection === 'features' ? 'active' : ''}
                 onClick={() => setActiveSection('features')}
             >
