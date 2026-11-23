@@ -42,4 +42,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    //function permission reviews
+    public function permissionReviews()
+    {
+        return $this->hasMany(PermissionReview::class);
+    }
 }
