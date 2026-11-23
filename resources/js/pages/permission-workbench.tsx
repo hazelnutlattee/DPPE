@@ -27,10 +27,10 @@ export default function PermissionWorkbench() {
     }, []);
 
     const permissions = [
-        { key: 'permission1', label: 'Permission 1' },
-        { key: 'permission2', label: 'Permission 2' },
-        { key: 'permission3', label: 'Permission 3' },
-        { key: 'permission4', label: 'Permission 4' },
+        { key: 'permission1', label: 'Camera Access' },
+        { key: 'permission2', label: 'Microphone Access' },
+        { key: 'permission3', label: 'Location Access' },
+        { key: 'permission4', label: 'Storage Access' },
     ] as const;
 
     const completed = Object.values(choices).filter(
@@ -184,10 +184,10 @@ export default function PermissionWorkbench() {
                     ) : (
                         reviews.map((review) => (
                             <div key={review.id} className="mb-3 rounded-md border p-3">
-                                <p>Permission 1: {review.permission1}</p>
-                                <p>Permission 2: {review.permission2}</p>
-                                <p>Permission 3: {review.permission3}</p>
-                                <p>Permission 4: {review.permission4}</p>
+                                <p>Camera Access: {review.permission1}</p>
+                                <p>Microphone Access: {review.permission2}</p>
+                                <p>Location Access: {review.permission3}</p>
+                                <p>Storage Access: {review.permission4}</p>
                             </div>
                         ))
                     )}
