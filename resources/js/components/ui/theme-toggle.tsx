@@ -1,28 +1,12 @@
 
-import { useEffect, useState } from 'react';
-
-type Theme = 'light' | 'dark';
+import { useAppearance } from '@/hooks/use-appearance';
 
 export default function ThemeToggle() {
-    const [theme, setTheme] = useState<Theme>('light');
-
-    useEffect(() => {
-        const savedTheme = localStorage.getItem('theme');
-        const initialTheme: Theme =
-            savedTheme === 'dark' ? 'dark' : 'light';
-
-        setTheme(initialTheme);
-        document.documentElement.setAttribute('data-theme', initialTheme);
-    }, []);
-
-    useEffect(() => {
-        document.documentElement.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
-    }, [theme]);
+    const { resolvedAppearance, updateAppearance } = useAppearance();
 
     const toggleTheme = () => {
-        setTheme((current) =>
-            current === 'light' ? 'dark' : 'light'
+        updateAppearance(
+            resolvedAppearance === 'light' ? 'dark' : 'light'
         );
     };
 
@@ -33,7 +17,9 @@ export default function ThemeToggle() {
             onClick={toggleTheme}
             aria-label="Toggle colour theme"
         >
-            {theme === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode'}
+            {resolvedAppearance === 'light'
+                ? '🌙 Dark Mode'
+                : '☀️ Light Mode'}
         </button>
     );
 }

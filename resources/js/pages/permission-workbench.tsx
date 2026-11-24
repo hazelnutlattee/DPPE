@@ -27,10 +27,10 @@ export default function PermissionWorkbench() {
     }, []);
 
     const permissions = [
-        { key: 'permission1', label: 'Camera Access' },
-        { key: 'permission2', label: 'Microphone Access' },
-        { key: 'permission3', label: 'Location Access' },
-        { key: 'permission4', label: 'Storage Access' },
+        { key: 'permission1', label: 'Location Access' },
+        { key: 'permission2', label: 'Camera Access' },
+        { key: 'permission3', label: 'Microphone Access' },
+        { key: 'permission4', label: 'Notification Access' },
     ] as const;
 
     const completed = Object.values(choices).filter(
@@ -99,7 +99,7 @@ export default function PermissionWorkbench() {
                         {completed} / 4 permissions completed
                     </p>
 
-                    <div className="mt-3 h-3 w-full rounded-full bg-gray-200">
+                    <div className="mt-3 h-3 w-full rounded-full bg-gray-200 dark:bg-gray-700">
                         <div
                             className="h-3 rounded-full bg-blue-600 transition-all"
                             style={{
@@ -131,7 +131,7 @@ export default function PermissionWorkbench() {
                                         choices[permission.key] ===
                                         'Allow'
                                             ? 'bg-green-600 text-white'
-                                            : ''
+                                            : 'border-gray-300 bg-[white] text-gray-900 dark:border-gray-600 dark:bg-gray-800 dark:text-white'
                                     }`}
                                 >
                                     Allow
@@ -148,7 +148,7 @@ export default function PermissionWorkbench() {
                                         choices[permission.key] ===
                                         'Deny'
                                             ? 'bg-red-600 text-white'
-                                            : ''
+                                            : 'border-gray-300 bg-[white] text-gray-900 dark:border-gray-600 dark:bg-gray-800 dark:text-white'
                                     }`}
                                 >
                                     Deny
@@ -160,7 +160,7 @@ export default function PermissionWorkbench() {
 
                 <button
                     onClick={checkChoices}
-                    className="w-fit rounded-md bg-black px-5 py-2 text-white"
+                    className="w-fit rounded-md bg-black text-white dark:bg-gray-100 dark:text-gray-900"
                 >
                     Check Choices
                 </button>
@@ -188,10 +188,10 @@ export default function PermissionWorkbench() {
                     ) : (
                         reviews.map((review) => ( //display the review from the database
                             <div key={review.id} className="mb-3 rounded-md border p-3">
-                                <p>Camera: {review.permission1}</p>
-                                <p>Microphone: {review.permission2}</p>
-                                <p>Video: {review.permission3}</p>
-                                <p>Location: {review.permission4}</p>
+                                <p>Location: {review.permission1}</p>
+                                <p>Camera: {review.permission2}</p>
+                                <p>Microphone: {review.permission3}</p>
+                                <p>Notifications: {review.permission4}</p>
 
                                 <button //delete review hok ni
                                     onClick={() => {
