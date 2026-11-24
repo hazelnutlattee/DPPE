@@ -55,6 +55,10 @@ export default function PermissionWorkbench() {
             router.post('/permission-reviews', choices, { //hok ni once dah tekan save review nanti pop up message "Review saved successfully!"
         onSuccess: () => {
             setMessage('Review saved successfully!');
+
+            fetch('/my-reviews')
+                .then((response) => response.json())
+                .then((data) => setReviews(data));
         },
     });
     };
@@ -182,12 +186,29 @@ export default function PermissionWorkbench() {
                     {reviews.length === 0 ? (
                         <p>No reviews saved yet.</p>
                     ) : (
-                        reviews.map((review) => (
+                        reviews.map((review) => ( //display the review from the database
                             <div key={review.id} className="mb-3 rounded-md border p-3">
-                                <p>Camera Access: {review.permission1}</p>
-                                <p>Microphone Access: {review.permission2}</p>
-                                <p>Location Access: {review.permission3}</p>
-                                <p>Storage Access: {review.permission4}</p>
+                                <p>Camera: {review.permission1}</p>
+                                <p>Microphone: {review.permission2}</p>
+                                <p>Video: {review.permission3}</p>
+                                <p>Location: {review.permission4}</p>
+
+                                <button //delete review hok ni
+                                    onClick={() => {
+                                        if (window.confirm('Are you sure you want to delete this review?')) {
+                                            router.delete(`/permission-reviews/${review.id}`, {
+                                                onSuccess: () => {
+                                                    setReviews((previous) =>
+                                                        previous.filter((item) => item.id !== review.id),
+                                                    );
+                                                },
+                                            });
+                                        }
+                                    }}
+                                    className="mt-3 rounded-md bg-red-600 px-4 py-2 text-white"
+                                >
+                                    Delete
+                                </button>
                             </div>
                         ))
                     )}
